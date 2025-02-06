@@ -127,7 +127,7 @@ laquinta_us <- laquintacountry %>%
 Not surprised by results 
 
 ```{r}
-dennys %>%
+dennysus %>%
   count(state) %>%
   inner_join(states, by = c("state" = "abbreviation")) %>%  
   arrange(n)
@@ -144,9 +144,46 @@ laquinta_us %>%
 ### Exercise 10
 > Which states have the most Denny’s locations per thousand square miles? What about La Quinta?
  
+```{r}
+usd_est <- dennysus %>%
+  mutate(establishment = "Denny's")
+uslq_est <- laquinta_us %>%
+  mutate(establishment = "La Quinta")
+```
+ 
+```{r}
+dn_lq <- bind_rows(usd_est, uslq_est)
+```
+
+ 
+```{r}
+ggplot(dn_lq, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+```
  
 ### Exercise 11
 > Filter the data for observations in North Carolina only, and recreate the plot. You should also adjust the transparency of the points, by setting the alpha level, so that it’s easier to see the overplotted ones. Visually, does Mitch Hedberg’s joke appear to hold here?
+
+```{r}
+dn_lq_nc <- dn_lq %>% 
+  filter(state == "NC")
+```
+
+```{r}
+ggplot(dn_lq_nc, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point(alpha =.50) + labs(title = "Does La Quinta = By a Denny's in NC?")
+
+```
+
+While there are many more Denny's than La Quintas - it does appear that all but one La Quintas has a Denny's closeby... seems suspicious 
 
 
 ### Exercise 12

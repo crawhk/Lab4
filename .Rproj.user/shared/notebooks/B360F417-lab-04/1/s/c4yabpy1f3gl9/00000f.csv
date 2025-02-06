@@ -1,0 +1,4 @@
+"0","usd_est <- dennysus %>%"
+"0","  mutate(establishment = ""Denny's"")"
+"0","uslq_est <- laquinta_us %>%"
+"0","  mutate(establishment = ""La Quinta"")"

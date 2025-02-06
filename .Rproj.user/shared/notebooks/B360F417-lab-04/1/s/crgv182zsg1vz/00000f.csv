@@ -1,0 +1,6 @@
+"0","ggplot(dn_lq, mapping = aes("
+"0","  x = longitude,"
+"0","  y = latitude,"
+"0","  color = establishment"
+"0",")) +"
+"0","  geom_point()"

@@ -1,4 +1,0 @@
-"0","dennys %>%"
-"0","  count(state) %>%"
-"0","  inner_join(states, by = c(""state"" = ""abbreviation"")) %>%  "
-"0","  arrange(n)"

@@ -204,5 +204,4 @@ ggplot(dn_lq_tx, mapping = aes(
 
 ```
 
-If you are at a la quintas in TX -- you are very likely to find a Dennys near by but since the la quintas overpower the dennys in terms of numbers it is not one to one
-
+If you are at a la quintas in TX -- you are very likely to find a Dennys near by but not exactly next door since the ratio of la quintas to dennys is not 1

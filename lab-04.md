@@ -214,7 +214,7 @@ laquinta_us <- laquintacountry %>%
 Not surprised by results
 
 ``` r
-dennys %>%
+dennysus %>%
   count(state) %>%
   inner_join(states, by = c("state" = "abbreviation")) %>%  
   arrange(n)
@@ -261,6 +261,28 @@ laquinta_us %>%
 > Which states have the most Denny’s locations per thousand square
 > miles? What about La Quinta?
 
+``` r
+usd_est <- dennysus %>%
+  mutate(establishment = "Denny's")
+uslq_est <- laquinta_us %>%
+  mutate(establishment = "La Quinta")
+```
+
+``` r
+dn_lq <- bind_rows(usd_est, uslq_est)
+```
+
+``` r
+ggplot(dn_lq, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+```
+
+![](lab-04_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
 ### Exercise 11
 
 > Filter the data for observations in North Carolina only, and recreate
@@ -268,8 +290,47 @@ laquinta_us %>%
 > setting the alpha level, so that it’s easier to see the overplotted
 > ones. Visually, does Mitch Hedberg’s joke appear to hold here?
 
+``` r
+dn_lq_nc <- dn_lq %>% 
+  filter(state == "NC")
+```
+
+``` r
+ggplot(dn_lq_nc, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point(alpha =.50) + labs(title = "Does La Quinta = By a Denny's in NC?")
+```
+
+![](lab-04_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+While there are many more Denny’s than La Quintas - it does appear that
+all but one La Quintas has a Denny’s closeby… seems suspicious
+
 ### Exercise 12
 
 > Now filter the data for observations in Texas only, and recreate the
 > plot, with an appropriate alpha level. Visually, does Mitch Hedberg’s
 > joke appear to hold here?
+
+``` r
+dn_lq_tx <- dn_lq %>% 
+  filter(state == "TX")
+```
+
+``` r
+ggplot(dn_lq_tx, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point(alpha =.20) + labs(title = "Does La Quinta = By a Denny's in TX?")
+```
+
+![](lab-04_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+
+If you are at a la quintas in TX – you are very likely to find a Dennys
+near by but since the la quintas overpower the dennys in terms of
+numbers it is not one to one

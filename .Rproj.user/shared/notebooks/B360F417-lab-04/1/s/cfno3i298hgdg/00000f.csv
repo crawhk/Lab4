@@ -1,0 +1,2 @@
+"0","laquinta %>%"
+"0","  filter(!(state %in% states$abbreviation))"

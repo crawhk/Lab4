@@ -41,6 +41,12 @@ LaQuinta Data
 ```{r}
 glimpse(laquinta)
 ```
+```{r}
+laquinta %>% 
+  count(state) %>% 
+  arrange(n)
+```
+
 
 ### Exercise 3
 > Take a look at the websites that the data come from (linked above). Are there any La Quinta’s locations outside of the US? If so, which countries? What about Denny’s?  
@@ -56,8 +62,8 @@ select(states)
 ### Exercise 4
 
 > Now take a look at the data. What would be some ways of determining whether or not either establishment has any locations outside the US using just the data (and not the websites). Don’t worry about whether you know how to implement this, just brainstorm some ideas. Write down at least one as your answer, but you’re welcomed to write down a few options too.
-  - According to the Help menu the datasets only include locations within the US
-  
+- looking at number of states and longitude/latitude 
+
 ### Exercise 5
 
 > Find the Denny’s locations that are outside the US, if any. To do so, filter the Denny’s locations for observations where state is not in states$abbreviation. The code for this is given below. Note that the %in% operator matches the states listed in the state variable to those listed in states$abbreviation. The ! operator means not. Are there any Denny’s locations outside the US?
@@ -79,12 +85,28 @@ dennysus <- dennys %>%
 ### Exercise 7
 > Find the La Quinta locations that are outside the US, and figure out which country they are in. This might require some googling. Take notes, you will need to use this information in the next exercise.
 
-
+- Canada, Mexico, China, New Zealand, Turkey, United Arab Emirates, Chile, Colombia, and Ecuador, Honduras
 
 ### Exercise 8
 > Add a country variable to the La Quinta dataset. Use the case_when function to populate this variable. You’ll need to refer to your notes from Exercise 7 about which country the non-US locations are in. Here is some starter code to get you going:
 
- 
+```{r}
+laquinta %>%
+  filter(!(state %in% states$abbreviation))
+```
+Mexico (AG, QR, CH, NL, VE, PU, SL), Columbia (ANT), Canada (ON, BC), Honduras (FM)
+
+
+```{r}
+laquinta %>%
+  mutate(country = case_when(
+    state %in% state.abb ~ "United States",
+    state %in% c("ON", "BC") ~ "Canada",
+    state == "ANT" ~ "Colombia",
+    state %in% c("AG", "QR", "CH", "NL", "VE", "PU", "SL") ~ "Mexico",
+    state == "FM" ~ "Honduras"))
+```
+
 ### Exercise 9
 > Which states have the most and fewest Denny’s locations? What about La Quinta? Is this surprising? Why or why not?
 

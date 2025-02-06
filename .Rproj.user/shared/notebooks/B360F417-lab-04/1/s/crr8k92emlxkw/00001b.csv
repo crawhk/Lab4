@@ -1,0 +1,2 @@
+"0","laquinta_us <- laquintacountry %>%"
+"0","  filter(country == ""United States"")"

@@ -1,4 +1,4 @@
-"0","laquinta %>%"
+"0","laquintacountry <- laquinta %>% "
 "0","  mutate(country = case_when("
 "0","    state %in% state.abb ~ ""United States"","
 "0","    state %in% c(""ON"", ""BC"") ~ ""Canada"","

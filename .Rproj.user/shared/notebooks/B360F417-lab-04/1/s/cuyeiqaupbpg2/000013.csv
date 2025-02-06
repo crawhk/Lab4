@@ -1,0 +1,7 @@
+"0","ggplot(dn_lq_tx, mapping = aes("
+"0","  x = longitude,"
+"0","  y = latitude,"
+"0","  color = establishment"
+"0",")) +"
+"0","  geom_point(alpha =.20) + labs(title = ""Does La Quinta = By a Denny's in TX?"")"
+"0",""

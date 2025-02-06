@@ -188,3 +188,21 @@ While there are many more Denny's than La Quintas - it does appear that all but 
 
 ### Exercise 12
 >Now filter the data for observations in Texas only, and recreate the plot, with an appropriate alpha level. Visually, does Mitch Hedberg’s joke appear to hold here? 
+
+```{r}
+dn_lq_tx <- dn_lq %>% 
+  filter(state == "TX")
+```
+
+```{r}
+ggplot(dn_lq_tx, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point(alpha =.20) + labs(title = "Does La Quinta = By a Denny's in TX?")
+
+```
+
+If you are at a la quintas in TX -- you are very likely to find a Dennys near by but since the la quintas overpower the dennys in terms of numbers it is not one to one
+

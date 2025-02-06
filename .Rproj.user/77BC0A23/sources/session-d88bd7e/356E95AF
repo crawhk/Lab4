@@ -3,24 +3,24 @@
     "path": "~/GitHub/Lab4/lab-04.Rmd",
     "project_path": "lab-04.Rmd",
     "type": "r_markdown",
-    "hash": "4092730152",
+    "hash": "2641102332",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1738770342931.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "189,76",
-        "scrollLine": "184"
+        "cursorPosition": "208,0",
+        "scrollLine": "205"
     },
     "folds": "",
-    "lastKnownWriteTime": 1738869166,
+    "lastKnownWriteTime": 1738869337,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1738869166168,
+    "last_content_update": 1738869341655,
     "read_only": false,
     "read_only_alternatives": []
 }
